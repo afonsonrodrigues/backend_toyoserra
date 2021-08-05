@@ -24,7 +24,7 @@ import com.toyoserra.models.Perfil;
 import com.toyoserra.repository.PerfilRepository;
 import com.toyoserra.security.service.AuthenticationService;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:19006/", maxAge = 3600)
 @RestController
 public class PerfilResource {
 	

@@ -16,16 +16,19 @@ public class OrdemServicoCadastroDTO {
 	private Long numeroDaOrdem;
 	
 	@NotNull
-	private LocalDate data;
+	private String data;
 	
 	@NotNull
 	private LocalTime hora;
 	
 	public OrdemServico toOrdemServico() {
-		
+				
 		OrdemServico ordemServico = new OrdemServico();
 		
-		String dataFinal = this.data + " " + this.hora;
+		DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate dateFormated = LocalDate.parse(this.data, formatterDate);
+		
+		String dataFinal = dateFormated + " " + this.hora;
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		LocalDateTime dateTime = LocalDateTime.parse(dataFinal, formatter);
@@ -46,15 +49,24 @@ public class OrdemServicoCadastroDTO {
 	}
 
 
-	public LocalDate getData() {
+	
+
+
+	public Long getNumeroDaOrdem() {
+		return numeroDaOrdem;
+	}
+
+	public void setNumeroDaOrdem(Long numeroDaOrdem) {
+		this.numeroDaOrdem = numeroDaOrdem;
+	}
+
+	public String getData() {
 		return data;
 	}
 
-
-	public void setData(LocalDate data) {
+	public void setData(String data) {
 		this.data = data;
 	}
-
 
 	public LocalTime getHora() {
 		return hora;

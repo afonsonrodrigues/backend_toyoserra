@@ -15,7 +15,7 @@ import com.toyoserra.models.Chassi;
 import com.toyoserra.service.ChassiService;
 
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:19006/", maxAge = 3600)
 @RestController
 @RequestMapping("/api/chassis")
 public class ChassiResource {

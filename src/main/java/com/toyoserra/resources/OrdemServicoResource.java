@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +25,7 @@ import com.toyoserra.models.StatusOrdem;
 import com.toyoserra.repository.OrdemServicoRepository;
 import com.toyoserra.security.service.AuthenticationService;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:19006/", maxAge = 3600)
 @RestController
 public class OrdemServicoResource {
 	
@@ -45,7 +44,7 @@ public class OrdemServicoResource {
 		
 	}
 
-	@GetMapping("/ordemServico/todos/aberto")
+	@GetMapping("/ordemServico/aberto")
 	public ResponseEntity<?> getOrdensAbetas(){
 		
 		List<OrdemServico> ordensAbertas = repository.findOrdensAbertas();
@@ -54,7 +53,7 @@ public class OrdemServicoResource {
 		
 	}
 	
-	@GetMapping("/ordemServico/todos/fechada")
+	@GetMapping("/ordemServico/fechada")
 	public ResponseEntity<?> getOrdensFechadas(){
 		
 		List<OrdemServico> ordensFechadas = repository.findOrdensFechadas();

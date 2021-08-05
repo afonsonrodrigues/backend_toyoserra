@@ -17,7 +17,7 @@ import com.toyoserra.dto.login.LoginDTO;
 import com.toyoserra.dto.login.TokenDTO;
 import com.toyoserra.security.service.TokenService;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:19006/", maxAge = 3600)
 @RestController
 public class AuthResource {
 	
